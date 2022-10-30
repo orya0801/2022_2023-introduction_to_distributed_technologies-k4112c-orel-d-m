@@ -124,8 +124,8 @@ $ minikube tunnel
 
 После этого приложение может быть открыто в браузере по адресу https://lab3-app.orel.com/
 
-<img src="app.png" alt="drawing" width="600"/>
+<img src="img/app.png" alt="drawing" width="600"/>
 
 TLS-сертификат: 
-<img src="cert.png" alt="drawing" width="600"/>
+<img src="img/cert.png" alt="drawing" width="600"/>
 
