@@ -28,10 +28,10 @@ ConfigMap позволят определять конфигурационные
 
 Манифест configMap для приложения находится в файле [configmap.yaml](configmap.yaml). 
 
-Создание ConfigMap:
+Создание ConfigMap `lab3-app-cm`:
 
 ```bash
-kubectl apply -f configmap.yaml
+kubectl apply -f configmap.yaml -n lab3 
 ```
 
 ### Передача значений ConfigMap в ReplicaSet
@@ -40,9 +40,22 @@ kubectl apply -f configmap.yaml
 
 Также был создан манифест [service.yaml](service.yaml), описывающий сервис типа ClusterIP для доступа к подам приложения lab3-app.
 
+Развертывание ReplicaSet и Service:
 ```bash
-$ kubectl apply -f replicaset.yaml
-$ kubectl apply -f service.yaml
+$ kubectl apply -f replicaset.yaml -n lab3
+$ kubectl apply -f service.yaml -n lab3
+$ kubectl get all -n lab3
+
+# Output:
+NAME                 READY   STATUS    RESTARTS   AGE
+pod/lab3-app-9jm4n   1/1     Running   0          10h
+pod/lab3-app-qnhc8   1/1     Running   0          10h
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/lab3-app     ClusterIP   10.99.242.23   <none>        80/TCP    10h
+
+NAME                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/lab3-app   2         2         2       10h
 ```
 
 ### Развертывание ingress-controller и создание TLS сертификата
@@ -75,7 +88,7 @@ $ mkcert orel.com "*.orel.com" localhost 127.0.0.1
 Далее TLS-сертификат необходимо импортировать в кластер в виде секрета (Secret): 
 
 ```bash
-$ kubectl create secret tls tls-cert --key key.pem --cert cert.pem
+$ kubectl create secret tls tls-cert --key key.pem --cert cert.pem -n lab3
 ```
 
 ### Создание Ingress в minikube
@@ -84,7 +97,7 @@ $ kubectl create secret tls tls-cert --key key.pem --cert cert.pem
 
 Создание ingress:
 ```bash
-$ kubectl apply -f ingress.yaml
+$ kubectl apply -f ingress.yaml -n lab3
 
 $ kubectl get ingress 
 
