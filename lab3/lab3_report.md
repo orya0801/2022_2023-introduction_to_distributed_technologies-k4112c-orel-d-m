@@ -127,5 +127,6 @@ $ minikube tunnel
 <img src="img/app.png" alt="drawing" width="600"/>
 
 TLS-сертификат: 
+
 <img src="img/cert.png" alt="drawing" width="600"/>
 
