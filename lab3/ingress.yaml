@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: lab3-app
 spec:
+  ingressClassName: "nginx"
   rules:
     - host: lab3-app.orel.com
       http:

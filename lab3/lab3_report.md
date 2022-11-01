@@ -99,7 +99,7 @@ $ kubectl create secret tls tls-cert --key key.pem --cert cert.pem -n lab3
 ```bash
 $ kubectl apply -f ingress.yaml -n lab3
 
-$ kubectl get ingress 
+$ kubectl get ingress -n lab3
 
 # Output:
 NAME       CLASS   HOSTS               ADDRESS     PORTS     AGE
