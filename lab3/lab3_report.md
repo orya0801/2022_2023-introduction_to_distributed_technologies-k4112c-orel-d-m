@@ -130,3 +130,6 @@ TLS-сертификат:
 
 <img src="img/cert.png" alt="drawing" width="600"/>
 
+### Схема организации контейнеров и сервисов
+
+<img src="img/diag.png" alt="drawing" width="600"/>
