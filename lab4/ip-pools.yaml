@@ -6,7 +6,7 @@ spec:
   cidr: 10.244.0.0/24
   ipipMode: Always
   natOutgoing: true
-  nodeSelector: region == "east"
+  nodeSelector: zone == "east"
 ---
 apiVersion: projectcalico.org/v3
 kind: IPPool
@@ -16,4 +16,4 @@ spec:
   cidr: 10.244.1.0/24
   ipipMode: Always
   natOutgoing: true
-  nodeSelector: region == "west"
+  nodeSelector: zone == "west"
